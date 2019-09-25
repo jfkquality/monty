@@ -21,7 +21,11 @@ void mod(stack_t **s, unsigned int n)
 		fprintf(stderr, "L%d: can't mod, stack too short\n", n);
 		exit(EXIT_FAILURE);
 	}
-
+	if ((*s)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", n);
+		exit(EXIT_FAILURE);
+	}
 	a = *s;
 	b = (*s)->next;
 	a->next = b->next;
@@ -86,6 +90,11 @@ void divi(stack_t **s, unsigned int n)
 		exit(EXIT_FAILURE);
 	}
 
+	if ((*s)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", n);
+		exit(EXIT_FAILURE);
+	}
 	a = *s;
 	b = (*s)->next;
 	a->next = b->next;
