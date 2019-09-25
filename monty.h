@@ -9,7 +9,8 @@
 #include <fcntl.h>
 #include <string.h>
 
-extern int stacktoq;
+int stacktoq;
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -22,9 +23,9 @@ extern int stacktoq;
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -37,8 +38,28 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-	  char *opcode;
-	  void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+void push(stack_t **s, unsigned int n, int value);
+void pall(stack_t **s, unsigned int n);
+void swap(stack_t **s, unsigned int n);
+void mod(stack_t **s, unsigned int n);
+void mul(stack_t **s, unsigned int n);
+void divi(stack_t **s, unsigned int n);
+void sub(stack_t **s, unsigned int n);
+void add(stack_t **s, unsigned int n);
+char **parse_space(char *s, char *buffer[]);
+char **parse(char *s, char *buffer[]);
+void pop(stack_t **s, unsigned int n);
+void pint(stack_t **s, unsigned int n);
+void pchar(stack_t **s, unsigned int n);
+void pstr(stack_t **s, unsigned int n);
+void rotl(stack_t **s, unsigned int n);
+void rotr(stack_t **s, unsigned int n);
+void queue(stack_t **s, unsigned int n);
+void stack(stack_t **s, unsigned int n);
+void comments(stack_t **s, unsigned int n);
 
 #endif
