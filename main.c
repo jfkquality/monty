@@ -92,10 +92,11 @@ int main(int argc, char *argv[])
 	stack = create_stack();
 	for (i = 0; split[i]; i++)
 	{
+		memset(split2, 0, sizeof(split2));
 		parse_space(split[i], split2);
 		if (strcmp(split2[0], "push") == 0)
 		{
-			if (split2[1])
+			if (split2[1] && isdigit(split2[1][0]))
 			{
 				value = atoi(split2[1]);
 				push(stack, line, value);
