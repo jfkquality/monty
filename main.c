@@ -17,6 +17,13 @@ void (*get_function(char *s)) (stack_t **s, unsigned int n)
 		{"div", divi},
 		{"mul", mul},
 		{"mod", mod},
+                {"pchar", pchar},
+                {"pstr", pstr},
+                {"rotl", rotl},
+                {"rotr", rotr},
+                {"stack", stack},
+                {"queue", queue},
+                {"comments", comments},
 		{NULL, NULL}
 	};
 
