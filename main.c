@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
 			continue;
 		if (strcmp(split2[0], "push") == 0)
 		{
-			if (split2[1] && isdigit(split2[1][0]))
+			if (split2[1] && (isdigit(split2[1][0]) || split2[1][0] == '-'))
 			{
 				value = atoi(split2[1]);
 				push(stack, line, value);
