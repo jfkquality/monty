@@ -31,7 +31,7 @@ void mod(stack_t **s, unsigned int n)
 	a->next = b->next;
 	if (b->next)
 		b->next->prev = a;
-	total = b->n % a->n;
+	total = (b->n) % (a->n);
 	a->n = total;
 	free(b);
 }
@@ -63,7 +63,7 @@ void mul(stack_t **s, unsigned int n)
 	a->next = b->next;
 	if (b->next)
 		b->next->prev = a;
-	total = a->n * b->n;
+	total = (a->n) * (b->n);
 	a->n = total;
 	free(b);
 }
@@ -100,7 +100,7 @@ void divi(stack_t **s, unsigned int n)
 	a->next = b->next;
 	if (b->next)
 		b->next->prev = a;
-	total = b->n / a->n;
+	total = (b->n) / (a->n);
 	a->n = total;
 	free(b);
 }
@@ -132,7 +132,7 @@ void sub(stack_t **s, unsigned int n)
 	a->next = b->next;
 	if (b->next)
 		b->next->prev = a;
-	total = b->n - a->n;
+	total = (b->n) - (a->n);
 	a->n = total;
 	free(b);
 }
@@ -163,7 +163,7 @@ void add(stack_t **s, unsigned int n)
 	a->next = b->next;
 	if (b->next)
 		b->next->prev = a;
-	total = a->n + b->n;
+	total = (a->n) + (b->n);
 	a->n = total;
 	free(b);
 }
