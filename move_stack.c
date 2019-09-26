@@ -71,5 +71,5 @@ void nop(stack_t **s, unsigned int n)
 	(void) s;
 	(void) n;
 
-	exit(EXIT_SUCCESS);
+	/* exit(EXIT_SUCCESS); */
 }
