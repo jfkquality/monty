@@ -22,7 +22,6 @@ void (*get_function(char *s)) (stack_t **s, unsigned int n)
 		{"rotr", rotr},
 		{"stack", stack},
 		{"queue", queue},
-		{"comments", comments},
 		{"nop", nop},
 		{NULL, NULL}
 	};
@@ -119,6 +118,8 @@ int main(int argc, char *argv[])
 		memset(split2, 0, sizeof(split2));
 		parse_space(split[i], split2);
 		if (split2[0] == NULL)
+			continue;
+		if (split2[0][0] == '#')
 			continue;
 		if (strcmp(split2[0], "push") == 0)
 		{

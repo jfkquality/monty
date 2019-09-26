@@ -54,22 +54,12 @@ void rotr(stack_t **s, unsigned int n)
 	*s = tail;
 }
 /**
- * comments - find comments. do nothing).
+ * nop - does nothing
  * @s: pointer to stack
  * @n: line number
- *
  */
-void comments(stack_t **s, unsigned int n)
-{
-	/* if 1st non-space char is "#": is comment; do nothing" */
-	(void) s;
-	(void) n;
-	/* (void) str; */
-}
 void nop(stack_t **s, unsigned int n)
 {
 	(void) s;
 	(void) n;
-
-	/* exit(EXIT_SUCCESS); */
 }
