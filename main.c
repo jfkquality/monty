@@ -28,6 +28,9 @@ void (*get_function(char *s)) (stack_t **s, unsigned int n)
 
 	int i = 0;
 
+	if (s == NULL)
+		return (NULL);
+
 	while (funcs[i].opcode)
 	{
 		if (strcmp(s, funcs[i].opcode) == 0)
@@ -77,10 +80,11 @@ stack_t **create_stack(void)
  */
 int main(int argc, char *argv[])
 {
-	int fd, i, line = 1, value;
+	int fd, i, line = 1, value, stacktoq = 0;
 	char temp[1000] = {0}, *split[1000] = {0}, *split2[100];
 	stack_t **stack;
 
+	(void) stacktoq;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -88,12 +92,15 @@ int main(int argc, char *argv[])
 	}
 	fd = open(argv[1], O_RDONLY);
 	read(fd, temp, 1000);
+	close(fd);
 	parse(temp, split);
 	stack = create_stack();
 	for (i = 0; split[i]; i++)
 	{
 		memset(split2, 0, sizeof(split2));
 		parse_space(split[i], split2);
+		if (split2[0] == NULL)
+			continue;
 		if (strcmp(split2[0], "push") == 0)
 		{
 			if (split2[1] && isdigit(split2[1][0]))
