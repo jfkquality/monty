@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * get_function - gets correct function
  * @s: command name
@@ -84,7 +85,6 @@ int main(int argc, char *argv[])
 	char temp[1000] = {0}, *split[1000] = {0}, *split2[100];
 	stack_t **stack;
 
-	(void) stacktoq;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
