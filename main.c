@@ -81,15 +81,12 @@ stack_t **create_stack(void)
  */
 int main(int argc, char *argv[])
 {
-	int fd, i, line = 1, value, stacktoq = 0;
+	int fd, i, line = 1, value;
 	char temp[1000] = {0}, *split[1000] = {0}, *split2[100];
 	stack_t **stack;
 
 	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	fd = open(argv[1], O_RDONLY);
 	read(fd, temp, 1000);
 	close(fd);
@@ -110,17 +107,14 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				fprintf(stderr, "L%d: usage: push integer\n", line);
-				exit(EXIT_FAILURE);
+				fprintf(stderr, "L%d: usage: push integer\n", line), exit(EXIT_FAILURE);
 			}
 		}
 		else if (get_function(split2[0]))
 			get_function(split2[0])(stack, line);
 		else
-		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line, split2[0]);
-			exit(EXIT_FAILURE);
-		}
+			fprintf(stderr, "L%d: unknown instruction %s\n", line,
+				split2[0]), exit(EXIT_FAILURE);
 		line++;
 	}
 	free_list(stack);
