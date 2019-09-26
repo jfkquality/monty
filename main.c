@@ -73,6 +73,21 @@ stack_t **create_stack(void)
 	*stack = NULL;
 	return (stack);
 }
+int is_digit(char *s)
+{
+	int i = 0;
+
+	if (s[0] == '-')
+		i = 1;
+
+	while (s[i])
+	{
+		if (!(isdigit(s[i])))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 /**
  * main - entry point
  * @argc: number of arguments
@@ -100,15 +115,13 @@ int main(int argc, char *argv[])
 			continue;
 		if (strcmp(split2[0], "push") == 0)
 		{
-			if (split2[1] && (isdigit(split2[1][0]) || split2[1][0] == '-'))
+			if (split2[1] && is_digit(split2[1]))
 			{
 				value = atoi(split2[1]);
 				push(stack, line, value);
 			}
 			else
-			{
 				fprintf(stderr, "L%d: usage: push integer\n", line), exit(EXIT_FAILURE);
-			}
 		}
 		else if (get_function(split2[0]))
 			get_function(split2[0])(stack, line);
