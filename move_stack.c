@@ -10,8 +10,10 @@ void rotl(stack_t **s, unsigned int n)
 {
 	stack_t *head, *tail;
 
-	(void) s;
 	(void) n;
+
+	if (*s == NULL)
+		return;
 
 	head = *s;
 	tail = head;
@@ -36,8 +38,10 @@ void rotr(stack_t **s, unsigned int n)
 {
 	stack_t *head, *tail;
 
-	(void) s;
 	(void) n;
+
+	if (*s == NULL || (*s)->next == NULL)
+		return;
 
 	head = *s;
 	tail = head;
