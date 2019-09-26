@@ -11,3 +11,7 @@ push 0
 pall
 rotl
 pall
+rotr
+pall
+rotr
+pall
