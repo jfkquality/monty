@@ -63,9 +63,9 @@ void pop(stack_t **s, unsigned int n)
 	}
 	if (!temp->next)
 	{
-		free(temp);
-		free(s);
-		exit(EXIT_SUCCESS);
+		free(*s);
+		*s = NULL;
+		return;
 	}
 	else
 	{
