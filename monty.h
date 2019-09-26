@@ -42,7 +42,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
+void free_list(stack_t **s);
 void push(stack_t **s, unsigned int n, int value);
 void pall(stack_t **s, unsigned int n);
 void swap(stack_t **s, unsigned int n);

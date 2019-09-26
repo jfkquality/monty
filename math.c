@@ -19,11 +19,13 @@ void mod(stack_t **s, unsigned int n)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 	if ((*s)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 	a = *s;
@@ -55,6 +57,7 @@ void mul(stack_t **s, unsigned int n)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 
@@ -87,12 +90,14 @@ void divi(stack_t **s, unsigned int n)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 
 	if ((*s)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 	a = *s;
@@ -124,6 +129,7 @@ void sub(stack_t **s, unsigned int n)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 
@@ -156,6 +162,7 @@ void add(stack_t **s, unsigned int n)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 	a = *s;

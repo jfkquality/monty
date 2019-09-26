@@ -73,6 +73,11 @@ stack_t **create_stack(void)
 	*stack = NULL;
 	return (stack);
 }
+/**
+ * is_digit - checks if a string is all digits
+ * @s: input string
+ * Return: 1 if all digits, 0 if not
+ */
 int is_digit(char *s)
 {
 	int i = 0;
@@ -121,13 +126,17 @@ int main(int argc, char *argv[])
 				push(stack, line, value);
 			}
 			else
-				fprintf(stderr, "L%d: usage: push integer\n", line), exit(EXIT_FAILURE);
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", line);
+				free_list(stack);
+				exit(EXIT_FAILURE);
+			}
 		}
 		else if (get_function(split2[0]))
 			get_function(split2[0])(stack, line);
 		else
 			fprintf(stderr, "L%d: unknown instruction %s\n", line,
-				split2[0]), exit(EXIT_FAILURE);
+				split2[0]), free_list(stack), exit(EXIT_FAILURE);
 		line++;
 	}
 	free_list(stack);
