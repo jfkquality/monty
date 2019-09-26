@@ -79,7 +79,7 @@ void pstr(stack_t **s, unsigned int n)
 	head = *s;
 	if (*s == NULL)
 	{
-		putchar('\n');
+		/* putchar('\n'); */
 		return;
 	}
 	while (head->next && head->n > 0 && head->n <= 127)
