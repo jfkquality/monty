@@ -46,7 +46,8 @@ void rotr(stack_t **s, unsigned int n)
 	{
 		tail = tail->next;
 	}
-	tail->next = head->next;
+
+	tail->next = head;
 	tail->prev->next = NULL;
 	tail->prev = NULL;
 	head->prev = tail;

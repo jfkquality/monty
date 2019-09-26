@@ -30,7 +30,8 @@ void pint(stack_t **s, unsigned int n)
 
 	if (!*s)
 	{
-		printf("LLL: can't pint, stack empty\n"); /* , n); */
+		fprintf(stderr, "L%d: can't pint, stack empty\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*s)->n);
@@ -49,12 +50,14 @@ void pchar(stack_t **s, unsigned int n)
 
 	if (!head)
 	{
-		printf("L%d: can't pchar, stack empty\n", n);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 	if (head->n < 0 || head->n > 127)
 	{
-		printf("L%d: can't pchar, value out of range\n", n);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 	putchar((*s)->n);

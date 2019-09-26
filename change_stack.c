@@ -57,7 +57,7 @@ void pop(stack_t **s, unsigned int n)
 
 	if (!*s)
 	{
-		printf("L%d: can't pop an empty stack\n", n);
+		fprintf(stderr,"L%d: can't pop an empty stack\n", n);
 		free(s);
 		exit(EXIT_FAILURE);
 	}
@@ -86,7 +86,6 @@ void stack(stack_t **s, unsigned int n)
 
 	(void) s;
 	(void) n;
-	(void) stacktoq;
 }
 /**
  * queue - change data to a queue (FIFO)
@@ -100,7 +99,6 @@ void queue(stack_t **s, unsigned int n)
 
 	(void) s;
 	(void) n;
-	(void) stacktoq;
 }
 /**
  * swap - swaps the first and second nodes
@@ -122,6 +120,7 @@ void swap(stack_t **s, unsigned int n)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", n);
+		free_list(s);
 		exit(EXIT_FAILURE);
 	}
 
