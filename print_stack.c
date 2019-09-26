@@ -77,12 +77,12 @@ void pstr(stack_t **s, unsigned int n)
 	(void) n;
 
 	head = *s;
-	if (*s == NULL || (*s)->next == NULL)
+	if (*s == NULL)
 	{
 		putchar('\n');
 		return;
 	}
-	while (head->next && head->n > 0 && head->n <= 127)
+	while (head && head->n > 0 && head->n <= 127)
 	{
 		putchar(head->n);
 		head = head->next;
