@@ -100,8 +100,8 @@ int is_digit(char *s)
  */
 int main(int argc, char *argv[])
 {
-	int fd, i, line = 1, value;
-	char temp[1000] = {0}, *split[1000] = {0}, *split2[100];
+	int fd, line = 1; /*, value,* i; */
+	char temp[1000] = {0}, *split[1000] = {0}; /* , *split2[100]; */
 	stack_t **stack;
 
 	if (argc != 2)
@@ -113,34 +113,7 @@ int main(int argc, char *argv[])
 	close(fd);
 	parse(temp, split);
 	stack = create_stack();
-	for (i = 0; split[i]; i++)
-	{
-		memset(split2, 0, sizeof(split2));
-		parse_space(split[i], split2);
-		if (split2[0] == NULL)
-			continue;
-		if (split2[0][0] == '#')
-			continue;
-		if (strcmp(split2[0], "push") == 0)
-		{
-			if (split2[1] && is_digit(split2[1]))
-			{
-				value = atoi(split2[1]);
-				push(stack, line, value);
-			}
-			else
-			{
-				fprintf(stderr, "L%d: usage: push integer\n", line);
-				free_list(stack), exit(EXIT_FAILURE);
-			}
-		}
-		else if (get_function(split2[0]))
-			get_function(split2[0])(stack, line);
-		else
-			fprintf(stderr, "L%d: unknown instruction %s\n", line,
-				split2[0]), free_list(stack), exit(EXIT_FAILURE);
-		line++;
-	}
+	find_function(stack, split, line);
 	free_list(stack);
 	return (0);
 }

@@ -42,6 +42,10 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void (*get_function(char *s)) (stack_t **s, unsigned int n);
+void find_function(stack_t **s, char *split[], int line);
+stack_t **create_stack(void);
+int is_digit(char *s);
 void free_list(stack_t **s);
 void push(stack_t **s, unsigned int n, int value);
 void pall(stack_t **s, unsigned int n);

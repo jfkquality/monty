@@ -57,7 +57,7 @@ void pop(stack_t **s, unsigned int n)
 
 	if (!*s)
 	{
-		fprintf(stderr,"L%d: can't pop an empty stack\n", n);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", n);
 		free(s);
 		exit(EXIT_FAILURE);
 	}
