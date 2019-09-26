@@ -1,5 +1,5 @@
 #include "monty.h"
-
+struct stq stacktoq;
 /**
  * get_function - gets correct function
  * @s: command name
@@ -109,6 +109,8 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]), exit(EXIT_FAILURE);
 	read(fd, temp, 1000);
 	close(fd);
 	parse(temp, split);
@@ -129,8 +131,7 @@ int main(int argc, char *argv[])
 			else
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line);
-				free_list(stack);
-				exit(EXIT_FAILURE);
+				free_list(stack), exit(EXIT_FAILURE);
 			}
 		}
 		else if (get_function(split2[0]))
