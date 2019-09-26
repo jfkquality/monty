@@ -10,7 +10,7 @@
 #include <string.h>
 #include <ctype.h>
 
-int stacktoq;
+extern int stacktoq;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

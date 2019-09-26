@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int stacktoq;
+
 /**
  * push - adds new node to the stack
  * @s: pointer to stack
