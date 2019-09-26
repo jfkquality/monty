@@ -62,5 +62,6 @@ void rotr(stack_t **s, unsigned int n);
 void queue(stack_t **s, unsigned int n);
 void stack(stack_t **s, unsigned int n);
 void comments(stack_t **s, unsigned int n);
+void nop(stack_t **s, unsigned int n);
 
 #endif

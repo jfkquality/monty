@@ -24,6 +24,7 @@ void (*get_function(char *s)) (stack_t **s, unsigned int n)
 		{"stack", stack},
 		{"queue", queue},
 		{"comments", comments},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 
