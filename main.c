@@ -1,5 +1,4 @@
 #include "monty.h"
-struct stq stacktoq;
 /**
  * get_function - gets correct function
  * @s: command name
