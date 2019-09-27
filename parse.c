@@ -1,13 +1,13 @@
 #include "monty.h"
 /**
- * parse_space - parse input at space
+ * parse - parse input at newline
  * @s: input
  * @buffer: buffer for output
  * Return: 2d array of parsed input
  */
-char **parse_space(char *s, char *buffer[])
+char **parse(char *s, char *buffer[])
 {
-	char delim[] = " ";
+	char delim[] = "\n";
 	char *token;
 	int i = 0;
 
@@ -24,14 +24,14 @@ char **parse_space(char *s, char *buffer[])
 	return (buffer);
 }
 /**
- * parse - parse input at newline
+ * parse_space - parse input at space
  * @s: input
  * @buffer: buffer for output
  * Return: 2d array of parsed input
  */
-char **parse(char *s, char *buffer[])
+char **parse_space(char *s, char *buffer[])
 {
-	char delim[] = "\n";
+	char delim[] = " ";
 	char *token;
 	int i = 0;
 

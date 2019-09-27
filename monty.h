@@ -55,7 +55,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void (*get_function(char *s)) (stack_t **s, unsigned int n);
-void find_function(stack_t **s, char *split[], int line);
+void find_function(stack_t **s, char *split[]);
 stack_t **create_stack(void);
 int is_digit(char *s);
 void free_list(stack_t **s);

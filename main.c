@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int fd, line = 1; /*, value,* i; */
+	int fd; /* , line = 1, value,* i; */
 	char temp[1000] = {0}, *split[1000] = {0}; /* , *split2[100]; */
 	stack_t **stack;
 
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 	close(fd);
 	parse(temp, split);
 	stack = create_stack();
-	find_function(stack, split, line);
+	find_function(stack, split); /* , line); */
 	free_list(stack);
 	return (0);
 }
