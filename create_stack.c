@@ -123,8 +123,7 @@ void find_function(stack_t **stack, char *split[], int line)
 			}
 			else
 			{
-				fprintf(stderr, "L%d: usage: push integer\n",
-					line);
+				fprintf(stderr, "L%d: usage: push integer\n", line);
 				free_list(stack), exit(EXIT_FAILURE);
 			}
 		}
