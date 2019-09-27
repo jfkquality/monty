@@ -1,7 +1,5 @@
 #include "monty.h"
 
-int stacktoq;
-
 /**
  * push - adds new node to the stack
  * @s: pointer to stack
@@ -10,7 +8,6 @@ int stacktoq;
  */
 void push(stack_t **s, unsigned int n, int value)
 {
-	/* int stacktoq; */
 	stack_t *new;
 	stack_t *current;
 
@@ -27,7 +24,7 @@ void push(stack_t **s, unsigned int n, int value)
 	new->prev = NULL;
 	if (*s == NULL)
 		*s = new;
-	else if (!stacktoq) /* is stack: add to top */
+	else if (!g.stoc) /* is stack: add to top */
 	{
 		new->next = *s;
 		(*s)->prev = new;
@@ -82,7 +79,7 @@ void pop(stack_t **s, unsigned int n)
  */
 void stack(stack_t **s, unsigned int n)
 {
-	stacktoq = 0;
+	g.stoc = 0;
 
 	(void) s;
 	(void) n;
@@ -95,7 +92,7 @@ void stack(stack_t **s, unsigned int n)
  */
 void queue(stack_t **s, unsigned int n)
 {
-	stacktoq = 1;
+	g.stoc = 1;
 
 	(void) s;
 	(void) n;

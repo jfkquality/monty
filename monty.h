@@ -10,7 +10,19 @@
 #include <string.h>
 #include <ctype.h>
 
-extern int stacktoq;
+/**
+ * struct g - global variable structs
+ * @n: integer
+ * @prev: points to the previous element of the stack (or queue)
+ * @next: points to the next element of the stack (or queue)
+ *
+ * Description: global variables for Monty project
+ */
+struct g
+{
+	int stoc;
+} g;
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
