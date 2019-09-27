@@ -3,7 +3,6 @@
  * find_function - push() or find function
  * @stack: the stack
  * @split: command line tokens
- * @line: line for error statements
  *
  * Return: void.
  */
