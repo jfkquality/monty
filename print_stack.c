@@ -12,8 +12,6 @@ void pall(stack_t **s, unsigned int n)
 
 	temp = *s;
 
-	if (!temp)
-		return;
 	while (temp)
 	{
 		printf("%d\n", temp->n);

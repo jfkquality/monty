@@ -20,7 +20,7 @@
  */
 struct g
 {
-	int stoc;
+	int stoq;
 } g;
 
 

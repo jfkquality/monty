@@ -24,7 +24,7 @@ void push(stack_t **s, unsigned int n, int value)
 	new->prev = NULL;
 	if (*s == NULL)
 		*s = new;
-	else if (!g.stoc) /* is stack: add to top */
+	else if (!g.stoq) /* is stack: add to top */
 	{
 		new->next = *s;
 		(*s)->prev = new;
@@ -79,7 +79,7 @@ void pop(stack_t **s, unsigned int n)
  */
 void stack(stack_t **s, unsigned int n)
 {
-	g.stoc = 0;
+	g.stoq = 0;
 
 	(void) s;
 	(void) n;
@@ -92,7 +92,7 @@ void stack(stack_t **s, unsigned int n)
  */
 void queue(stack_t **s, unsigned int n)
 {
-	g.stoc = 1;
+	g.stoq = 1;
 
 	(void) s;
 	(void) n;
